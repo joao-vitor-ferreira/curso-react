@@ -1,0 +1,10 @@
+[
+    {
+        "nome": "Elon Musk",
+        "avatar": "https://upload.wikimedia.org/wikipedia/commons/9/95/The_White_House_-_54409525537_%28cropped%29.jpg",
+        "proficoes": [
+            "CEO da SpaceX",
+            "CEO da Tesla"
+        ]
+    }
+]
