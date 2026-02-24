@@ -1,11 +1,11 @@
 "use client"
 
-import { Reducer } from "@/components/AulasIntermediario";
+import { ContextUsuario } from "@/components/AulasIntermediario";
 
 const Page = () => {
   return (
     <div className="w-full=screen h-full-screen">
-      <Reducer />
+      <ContextUsuario />
     </div>
   );
 }

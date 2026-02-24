@@ -4,6 +4,62 @@ import { Square } from "./Square";
 import { Item } from "@/types/Item";
 import { listRedeucer } from "@/reducers/ListReducer";
 import { TodoItems } from "./TodoItems";
+import { Header } from "./Header";
+import { CountProvider } from "@/contexts/CountContext";
+import { UserLoggedProvider } from "@/contexts/UserLogged";
+import { HeaderUser } from "./HeaderUser";
+
+
+export const ContextUsuario = () => {
+    return (
+        <UserLoggedProvider>
+            <HeaderUser />
+        </UserLoggedProvider>
+    );
+}
+
+export const CriandoContext = () => {
+    return (
+        <CountProvider>
+            <Header />
+        </CountProvider>
+    );
+}
+
+export const OQueEContext = () => {
+
+    const Title = () => {
+        return (
+            <h1>...</h1>
+        );
+    }
+
+    const Subtitle = () => {
+        return (
+            <p>...</p>
+        );
+    }
+
+    const Header = () => {
+        return (
+            <header>
+                <Title />
+                <Subtitle />
+            </header>
+        );
+    }
+
+    const pageInfo = {
+        title: 'Titulo maroto',
+        subtitle: 'Subtitulo maroto'
+    }
+
+    return (
+        <div className="container mx-auto">
+            <Header />
+        </div>
+    );
+}
 
 export const Reducer = () => {
 
