@@ -8,7 +8,17 @@ import { Header } from "./Header";
 import { CountProvider } from "@/contexts/CountContext";
 import { UserLoggedProvider } from "@/contexts/UserLogged";
 import { HeaderUser } from "./HeaderUser";
+import { Posts } from "./Posts";
+import { PostProvider } from "@/contexts/PostContext";
 
+export const ContextReducerAula = () => {
+
+    return (
+        <PostProvider>
+            <Posts />
+        </PostProvider>
+    );
+}
 
 export const ContextUsuario = () => {
     return (
