@@ -10,7 +10,24 @@ import { UserLoggedProvider } from "@/contexts/UserLogged";
 import { HeaderUser } from "./HeaderUser";
 import { Posts } from "./Posts";
 import { PostProvider } from "@/contexts/PostContext";
+import { ThemeClass } from "./ThemeClass";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
+export const ExcercicioChatSimples = () => {
+    return (
+        <div></div>
+    );
+}
+
+export const ExercicioLightDarkMode = () => {
+    return(
+        <ThemeProvider>
+            <ThemeClass/>
+        </ThemeProvider>
+    );
+}
+
+/** Nestas aulas utiliza-se reducer com context é salvo os dados no localStorage */
 export const ContextReducerAula = () => {
 
     return (

@@ -1,10 +1,10 @@
-import { PostContext } from "@/contexts/PostContext";
+import { usePosts } from "@/contexts/PostContext";
 import { Post } from "@/types/Post";
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 export const Posts = () => {
-    const postContext = useContext(PostContext);
-    const [newPost, setNewPost] = useState<Post|null>(null);
+    const postContext = usePosts();
+    const [newPost, setNewPost] = useState<Post>({ id: '', title: '', body: '' });
     const length = postContext?.posts?.length ?? 0;
 
     const handleTypeInput = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -24,7 +24,7 @@ export const Posts = () => {
     }
 
     const handleAddClick = () => {
-        if(newPost?.title && newPost?.body){
+        if(newPost.title && newPost.body){
             postContext?.dispatch({ type: 'add', payload: { title: newPost.title, body: newPost.body } });
         }
     }
@@ -42,7 +42,7 @@ export const Posts = () => {
                         type="text"
                         placeholder="Título"
                         className="flex-1 border border-black p-3 text-2xl text-black rounded-md mb-3"
-                        value={newPost?.title}
+                        value={newPost.title}
                         onChange={handleTypeInput}
                         id="title-input-text"
                     />
@@ -50,7 +50,7 @@ export const Posts = () => {
                     <textarea
                         placeholder="Postagem"
                         className="w-full border border-black p-3 text-2xl text-black rounded-md mb-3"
-                        value={newPost?.body}
+                        value={newPost.body}
                         id="body-input-text"
                         onChange={handleTypeInput}
                     ></textarea>
