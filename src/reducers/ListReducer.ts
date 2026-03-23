@@ -42,8 +42,6 @@ export const listRedeucer = (list: Item[], action: ListActions) => {
     // Executar Alguma acao
     // retorna lista atualizada
 
-    console.log('chamou listRedeucer');
-
     switch(action.type){
         case 'add':
             let uid = crypto.randomUUID();

@@ -12,10 +12,14 @@ import { Posts } from "./Posts";
 import { PostProvider } from "@/contexts/PostContext";
 import { ThemeClass } from "./ThemeClass";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { ChatSimples } from "./ChatSimples";
+import { ChatSimplesProvider } from "@/contexts/ChatSimplesContext";
 
 export const ExcercicioChatSimples = () => {
     return (
-        <div></div>
+        <ChatSimplesProvider>
+            <ChatSimples/>
+        </ChatSimplesProvider>
     );
 }
 
