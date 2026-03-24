@@ -14,6 +14,13 @@ import { ThemeClass } from "./ThemeClass";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { ChatSimples } from "./ChatSimples";
 import { ChatSimplesProvider } from "@/contexts/ChatSimplesContext";
+import { RequisicaoClass } from "./RequisicaoClass";
+
+export const Requisicao = () => {
+    return (
+        <RequisicaoClass />
+    );
+}
 
 export const ExcercicioChatSimples = () => {
     return (

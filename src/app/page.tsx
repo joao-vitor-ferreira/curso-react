@@ -1,10 +1,10 @@
 "use client"
 
-import { ExcercicioChatSimples } from "@/components/AulasIntermediario";
+import { Requisicao } from "@/components/AulasIntermediario";
 
 const Page = () => {
   return (
-      <ExcercicioChatSimples />
+      <Requisicao />
   );
 }
 

@@ -1,10 +1,13 @@
 import { useChatSimples } from "@/hooks/useChatSimples";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const ChatSimples = () => {
     const chatSimples = useChatSimples();
     const [inputIam, setInputIam] = useState('');
     const [inputBot, setInputBot] = useState('');
+    useEffect(() => {
+        scrollBottom();
+    }, [chatSimples]);
 
     const onPressKeyEnter = (e: any) => {
         if(e.key === 'Enter') {
@@ -29,15 +32,12 @@ export const ChatSimples = () => {
                 });
                 setInputBot('');
             }
-
-            scrollBottom();
         }
     }
 
     const scrollBottom = () => {
         const objDiv = document.getElementById("divScroll");
         if(objDiv){
-            objDiv.scrollIntoView({behavior: "smooth"});
             objDiv.scrollTo({
                 top: objDiv.scrollHeight,
                 behavior: 'smooth'
@@ -46,15 +46,19 @@ export const ChatSimples = () => {
     }
 
     return (
-        <div className="container mx-auto w-200 h-full">
+        <div className="container mx-auto w-200 h-full max-w-lg">
             <div className="row bg-green-600 p-3 rounded w-full">
+                <h1 className="text-center text-black font-bold text-3xl">Chat Simples</h1>
                 <div id="divScroll" className="flex flex-wrap text-black w-full max-h-100 overflow-y-scroll">
                     { !chatSimples || !chatSimples?.conversa?.length && <div className="w-full m-2">
                         <span>Não há mensagens.</span>
                     </div> }
                     { chatSimples?.conversa?.map((item, i) => (
                         <div key={i+'-key'} className="w-full m-2">
-                            <span className={`p-2 rounded bg-amber-300 ${!item.itsMe ? 'float-right' : 'float-left'}`}>{item.texto}</span>
+                            <div className={`flex flex-wrap p-1 rounded bg-amber-300 ${!item.itsMe ? 'float-right' : 'float-left'}`}>
+                                <span className="w-full text-xs"><strong>{item.itsMe ? 'EU' : 'BOT'}</strong></span>
+                                <span className="w-full text-xs">{item.texto}</span>
+                            </div>
                         </div>
                     )) }
                 </div>
